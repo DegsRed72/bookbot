@@ -1,8 +1,15 @@
 from stats import get_word_count, get_character_amount, get_sorted_dict
-#Reads text file and returns contents
+import sys
+
+#Reads text file and returns contents as str
 def get_book_text():
-    with open("books/frankenstein.txt") as book:
-        book_contents = book.read()
+    if len(sys.argv) == 2:
+        with open(sys.argv[1]) as book:
+            book_contents = book.read()
+    else:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
     return book_contents
 
 def main(): 
